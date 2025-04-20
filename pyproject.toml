@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pizza-backend"
+version = "0.1.0"
+description = ""
+authors = ["samuel.bandeira.oliveira <samuel.bandeira.oliveira@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.12"}
+psycopg2 = "^2.9.10"
+psycopg2-binary = "^2.9.10"
+sqlalchemy = "^2.0.40"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-jose = {extras = ["cryptography"], version = "^3.4.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
