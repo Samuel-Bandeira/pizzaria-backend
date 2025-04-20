@@ -81,28 +81,3 @@ def delete_order(order_id: int, db: Session = Depends(get_db)):
     db.delete(order)
     db.commit()
     return
-# @router.put("/{order_id}", response_model=OrderOut)
-# def update_order(order_id: int, order_data: OrderUpdate, db: Session = Depends(get_db)):
-#     order = db.query(Order).get(order_id)
-#     if not order:
-#         raise HTTPException(status_code=404, detail="Pedido não encontrado")
-
-#     # Atualiza todos os campos, substituindo a estrutura
-#     order.store_id = order_data.store_id
-#     db.query(OrderItem).filter(OrderItem.order_id == order.id).delete()
-    
-#     items = []
-#     total = 0.0
-#     for item in order_data.items:
-#         product = db.query(Product).get(item.product_id)
-#         if not product:
-#             raise HTTPException(status_code=404, detail=f"Produto {item.product_id} não encontrado")
-#         subtotal = product.price * item.quantity
-#         total += subtotal
-#         items.append(OrderItem(product_id=product.id, quantity=item.quantity, unit_price=product.price))
-
-#     order.items = items
-#     order.total_value = total
-#     db.commit()
-#     db.refresh(order)
-#     return order
